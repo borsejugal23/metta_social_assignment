@@ -4,6 +4,7 @@ import { Spinner } from '@chakra-ui/react';
 
 import useDebounce from "../api/api";
 import CountryCard from "./CountryCard";
+import { IoSearchOutline } from "react-icons/io5";
 
 const CountryList = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,13 +24,16 @@ const CountryList = () => {
     Enter Currency code
   </label>
 
-  <input
-    type="text"
-    className="mt-2 px-3 py-2 bg-white border border-black shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-base focus:ring-1  text-black"
-    placeholder="Search By currency INR, EUR"
-    value={searchQuery}
-    onChange={handleQuery}
-  />
+  <div className="relative mt-2">
+      <input
+        type="text"
+        className="pl-3 py-2 bg-white border border-black shadow-sm placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md text-base focus:ring-1 text-black"
+        placeholder="Search By currency INR, EUR"
+        value={searchQuery}
+        onChange={handleQuery}
+      />
+      <IoSearchOutline className="absolute top-3 right-3 text-black" />
+    </div>
     {
        loading?<div className="flex justify-center items-center h-screen mt-[-20%]"><Spinner
        thickness='3px'
@@ -39,7 +43,7 @@ const CountryList = () => {
        size='xl'
      /></div>:
 
-       (<div className="flex flex-wrap mt-8">
+       (<div className="flex flex-wrap mt-6">
     {
      search?.length>0? (search.map((country,i)=>(<CountryCard key={i+1} country={country} />)
 
