@@ -2,9 +2,9 @@
 
 const CountryCard=({country})=>{
     // console.log(country);
-  return  <div className="w-full md:w-1/3 p-4 shadow-md" >
+  return  <div className="w-full md:w-1/3 p-4 shadow-md">
 
-    <img src={country.flags.svg} alt={country.name.common}className="w-2/4" />
+    <img src={country.flags.svg} alt={country.name.common}className="w-2/5" />
 
     <p className="py-2"><strong>Name: </strong>{country.name.common}</p>
 

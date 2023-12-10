@@ -43,12 +43,19 @@ const CountryList = () => {
        size='xl'
      /></div>:
 
-       (<div className="flex flex-wrap mt-6">
+       (<div className="flex flex-wrap mt-4">
     {
      search?.length>0? (search.map((country,i)=>(<CountryCard key={i+1} country={country} />)
 
    )): 
-   error?<h1 className="text-xl text-rose-600">Sorry, no results found.</h1>:
+   error?<div class="flex items-center justify-center h-screen  w-full mt-[-20%]">
+   <div class="flex flex-col items-center justify-center bg-white p-8 shadow-md text-center">
+     <div class="text-6xl font-bold text-red-500 mb-4">404</div>
+     <div class="text-lg text-gray-600">Page not found</div>
+   </div>
+ </div>
+ 
+:
    <img className="w-full"
       src="https://www.worldatlas.com/r/w1300-q80/upload/4c/1e/8e/shutterstock-585541982.jpg"  
       alt="currency"
