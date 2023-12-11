@@ -1,7 +1,7 @@
 // CountryList.js
 import React, {  useState } from "react";
 import { Spinner } from '@chakra-ui/react';
-
+import 'react-toastify/dist/ReactToastify.css';
 import useDebounce from "../api/api";
 import CountryCard from "./CountryCard";
 import { IoSearchOutline } from "react-icons/io5";
@@ -43,15 +43,16 @@ const CountryList = () => {
        size='xl'
      /></div>:
 
-       (<div className="flex flex-wrap mt-4">
+       (<div className="flex flex-wrap mt-4 ">
     {
-     search?.length>0? (search.map((country,i)=>(<CountryCard key={i+1} country={country} />)
+     search?.length>0? (search.map((country,i)=>(<CountryCard key={i+1} country={country} /> )
 
    )): 
    error?<div class="flex items-center justify-center h-screen  w-full mt-[-20%]">
    <div class="flex flex-col items-center justify-center bg-white p-8 shadow-md text-center">
      <div class="text-6xl font-bold text-red-500 mb-4">404</div>
-     <div class="text-lg text-gray-600">Page not found</div>
+     <div class="text-lg text-gray-600">Page not found </div>
+     
    </div>
  </div>
  
