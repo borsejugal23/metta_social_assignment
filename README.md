@@ -38,7 +38,8 @@ Open the index.html file in a web browser.
 
 ## search feature
 
-![Screenshot 2023-12-10 171642](https://github.com/borsejugal23/metta_social_assignment/assets/115457172/7f50e890-cb2a-4495-a3ba-01af68b812f6)
+
+![Screenshot 2024-01-04 014711](https://github.com/borsejugal23/metta_social_assignment/assets/115457172/1efc0f4e-4833-490b-8e60-a75b383ef950)
 
 
 ## Error
@@ -48,4 +49,9 @@ Open the index.html file in a web browser.
 
 ## Mobile View
 
-![Screenshot 2023-12-10 171817](https://github.com/borsejugal23/metta_social_assignment/assets/115457172/d691b43c-96a9-41ef-9f45-7c6e0666fa2c)
+![6595c085d8f633006a18f21b--remarkable-beignet-532feb netlify app_](https://github.com/borsejugal23/metta_social_assignment/assets/115457172/49af7cc1-9c4d-432f-8713-0080643623fe)
+
+
+
+
+
