@@ -10,7 +10,7 @@ export default function useDebounce(query) {
     try {
       let res = await fetch(`${url}/currency/${query.toLowerCase()}`);
       if (!res.ok) {
-        throw new Error("Page not found"); // Error for incorrect query
+        throw new Error("Page not found"); 
       }
       let data = await res.json();
       return data;
@@ -37,7 +37,7 @@ export default function useDebounce(query) {
       timer = setTimeout(async () => {
         const result = await fetchData(query);
         setSearch(result);
-        setLoading(false); // Set loading to false after data fetch
+        setLoading(false); 
       }, 600);
     }
     debounceFetch();

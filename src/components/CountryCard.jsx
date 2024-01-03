@@ -2,11 +2,11 @@
 
 const CountryCard=({country})=>{
     // console.log(country);
-  return  <div className="w-full sm:w-1/2 md:w-1/3 p-5 shadow md:shadow-lg rounded-s-md my-4 text-center flex flex-col items-center">
+  return  <div className="w-full p-5 shadow md:shadow-lg rounded-s-md my-4 text-center flex flex-col items-center bg-gray-200">
 
-    <img src={country.flags.svg} alt={country.name.common}className="w-2/4" />
+    <img src={country.flags.svg} alt={country.name.common}className="w-2/4 mt-2" />
 
-    <p className="py-2"><strong> {country.name.common}</strong></p>
+    <p className="py-2 text-lg"><strong> {country.name.common}</strong></p>
 
     {country.capital && country.capital.length > 0 ? (
        <p><strong>Capital: </strong>{country.capital[0]}</p>
