@@ -1,17 +1,32 @@
 import React, { useState } from "react";
 import { Spinner } from '@chakra-ui/react';
 import 'react-toastify/dist/ReactToastify.css';
-import useDebounce from "../api/api";
+// import useDebounce from "../api/api";
 import CountryCard from "./CountryCard";
 import { IoSearchOutline } from "react-icons/io5";
+import { useDispatch, useSelector } from "react-redux";
+import { getCountries } from "../Redux/action";
 
 const CountryList = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const { search, error, loading } = useDebounce(searchQuery);
+  // const { search, isError, isLoading } = useDebounce(searchQuery);
+  const dispatch = useDispatch();
+  
+  const { countries, isError, isLoading } = useSelector((state) => ({
+    countries: state.countries,
+    isError: state.isError,
+    isLoading: state.isLoading,
+  }));
+  console.log(countries,isError,isLoading)
 
   const handleQuery = (e) => {
+    console.log(e.target.value)
+    
     setSearchQuery(e.target.value);
+    dispatch(getCountries(e.target.value)); // Dispatch action to fetch data
   };
+
+ 
 
   return (
     <div className="w-auto mx-auto ">
@@ -32,7 +47,7 @@ const CountryList = () => {
         <IoSearchOutline className="absolute top-3 right-3 text-black" />
       </div>
 
-      {loading ? (
+      {isLoading ? (
         <div className="flex justify-center items-center h-screen mt-[-10%] ">
           <Spinner
             thickness='3px'
@@ -44,23 +59,23 @@ const CountryList = () => {
         </div>
       ) : (
         <>
-          {search?.length > 0 ? (
+          {countries?.length > 0 ? (
             <div className="w-10/12 mx-auto grid grid-cols-1 gap-x-5 gap-y-2 mt-4 sm:grid-cols-3 sm:gap-x-0 md:gap-x-5">
-            {search.map((country, i) => (
+            {countries.map((country, i) => (
               <CountryCard key={i + 1} country={country} />
             ))}
           </div>
           
           ) : (
             <>
-              {error && (
+              {isError && (
                 <div className="bg-white w-3/6 md:w-3/12 mx-auto p-8 mt-20 shadow-md text-center">
                 <p className="text-6xl font-bold text-red-500 mb-4">404</p>
                 <p className="text-lg text-gray-600">Page not found</p>
               </div>
               
               )}
-              {!error && (
+              {!isError && (
                 <div className="w-9/12 mx-auto mt-2 ">
                   <img
                     className="w-full"
